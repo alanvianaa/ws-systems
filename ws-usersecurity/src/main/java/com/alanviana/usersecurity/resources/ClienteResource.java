@@ -2,6 +2,7 @@ package com.alanviana.usersecurity.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
@@ -32,7 +33,7 @@ public class ClienteResource {
 	private ClienteService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<Cliente> find(@PathVariable Integer id) {
+	public ResponseEntity<Cliente> find(@PathVariable UUID id) {
 		Cliente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
@@ -53,7 +54,7 @@ public class ClienteResource {
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDto, @PathVariable Integer id) {
+	public ResponseEntity<Void> update(@Valid @RequestBody ClienteDTO objDto, @PathVariable UUID id) {
 		Cliente obj = service.fromDTO(objDto);
 		obj.setId(id);
 		obj = service.update(obj);
@@ -62,7 +63,7 @@ public class ClienteResource {
 	
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+	public ResponseEntity<Void> delete(@PathVariable UUID id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}

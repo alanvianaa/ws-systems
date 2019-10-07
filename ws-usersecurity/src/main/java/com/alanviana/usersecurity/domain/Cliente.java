@@ -1,22 +1,10 @@
 package com.alanviana.usersecurity.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
-import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.alanviana.usersecurity.domain.enums.Perfil;
 import com.alanviana.usersecurity.domain.enums.TipoCliente;
@@ -27,8 +15,8 @@ public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	@Column(name = "id", length = 16, unique = true, nullable = false)
+	private UUID id;
 	private String nome;
 	
 	@Column(unique=true)
@@ -54,9 +42,11 @@ public class Cliente implements Serializable {
 		addPerfil(Perfil.CLIENTE);
 	}
 
-	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
+	public Cliente(UUID id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
 		super();
-		this.id = id;
+		if(id == null){
+			this.id = UUID.randomUUID();
+		}
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
@@ -65,12 +55,12 @@ public class Cliente implements Serializable {
 		addPerfil(Perfil.CLIENTE);
 	}
 
-	public Integer getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(UUID id) {
+		id = id;
 	}
 
 	public String getNome() {
@@ -161,5 +151,5 @@ public class Cliente implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}	
+	}
 }

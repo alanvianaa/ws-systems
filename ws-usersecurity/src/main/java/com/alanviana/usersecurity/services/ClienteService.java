@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import com.alanviana.usersecurity.repositories.ClienteRepository;
 import com.alanviana.usersecurity.repositories.EnderecoRepository;
@@ -54,14 +55,14 @@ public class ClienteService {
 	@Value("${img.profile.size}")
 	private Integer size;
 	
-	public Cliente find(Integer id) {
+	public Cliente find(UUID id) {
 		
 		UserSS user = UserService.authenticated();
 		if (user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
 			throw new AuthorizationException("Acesso negado");
 		}
-		
-		Optional<Cliente> obj = repo.findById(id);
+
+		Optional<Cliente> obj = Optional.ofNullable(repo.findByUUID(id));
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
 	}
@@ -80,10 +81,10 @@ public class ClienteService {
 		return repo.save(newObj);
 	}
 
-	public void delete(Integer id) {
+	public void delete(UUID id) {
 		find(id);
 		try {
-			repo.deleteById(id);
+			repo.deleteByUUID(id);
 		}
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possível excluir porque há pedidos relacionados");
