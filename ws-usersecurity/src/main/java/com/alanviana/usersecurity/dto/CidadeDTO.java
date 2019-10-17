@@ -1,29 +1,30 @@
 package com.alanviana.usersecurity.dto;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import com.alanviana.usersecurity.domain.Cidade;
 
 public class CidadeDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	private UUID uuid;
 	private String nome;
 	
 	public CidadeDTO() {
 	}
 
 	public CidadeDTO(Cidade obj) {
-		id = obj.getId();
+		uuid = obj.getId();
 		nome = obj.getNome();
 	}
 	
-	public Integer getId() {
-		return id;
+	public UUID getId() {
+		return uuid;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(UUID id) {
+		this.uuid = id;
 	}
 
 	public String getNome() {

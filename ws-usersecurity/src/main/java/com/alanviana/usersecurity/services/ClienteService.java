@@ -62,7 +62,7 @@ public class ClienteService {
 			throw new AuthorizationException("Acesso negado");
 		}
 
-		Optional<Cliente> obj = Optional.ofNullable(repo.findByUUID(id));
+		Optional<Cliente> obj = Optional.ofNullable(repo.findById(id));
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
 	}
@@ -84,7 +84,7 @@ public class ClienteService {
 	public void delete(UUID id) {
 		find(id);
 		try {
-			repo.deleteByUUID(id);
+			repo.deleteById(id);
 		}
 		catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Não é possível excluir porque há pedidos relacionados");

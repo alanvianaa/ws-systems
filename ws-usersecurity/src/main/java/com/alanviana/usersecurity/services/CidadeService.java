@@ -1,6 +1,7 @@
 package com.alanviana.usersecurity.services;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.alanviana.usersecurity.repositories.CidadeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class CidadeService {
 	@Autowired
 	private CidadeRepository repo;
 
-	public List<Cidade> findByEstado(Integer estadoId) {
+	public List<Cidade> findByEstado(UUID estadoId) {
 		return repo.findCidades(estadoId);
 	}
 }

@@ -37,17 +37,20 @@ public class DBService {
 	public void instantiateTestDatabase() throws ParseException {
 
 		Estado est1 = new Estado(null, "Minas Gerais");
+		estadoRepository.save(est1);
 		Estado est2 = new Estado(null, "São Paulo");
-		
+		estadoRepository.save(est2);
+
 		Cidade c1 = new Cidade(null, "Uberlândia", est1);
+		cidadeRepository.save(c1);
 		Cidade c2 = new Cidade(null, "São Paulo", est2);
+		cidadeRepository.save(c2);
 		Cidade c3 = new Cidade(null, "Campinas", est2);
+		cidadeRepository.save(c3);
 		
 		est1.getCidades().addAll(Arrays.asList(c1));
 		est2.getCidades().addAll(Arrays.asList(c2, c3));
 
-		estadoRepository.saveAll(Arrays.asList(est1, est2));
-		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 		
 		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, pe.encode("123"));
 		

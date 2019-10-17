@@ -3,12 +3,9 @@ package com.alanviana.usersecurity.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,8 +14,8 @@ public class Estado implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	@Column(name = "id", length = 16, unique = true, nullable = false)
+	private UUID id;
 	private String nome;
 	
 	@JsonIgnore
@@ -30,15 +27,17 @@ public class Estado implements Serializable {
 
 	public Estado(Integer id, String nome) {
 		super();
-		this.id = id;
+		if(id == null){
+			this.id = UUID.randomUUID();
+		}
 		this.nome = nome;
 	}
 
-	public Integer getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 

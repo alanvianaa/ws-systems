@@ -1,6 +1,7 @@
 package com.alanviana.usersecurity.resources;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class EstadoResource {
 	}
 	
 	@RequestMapping(value="/{estadoId}/cidades", method=RequestMethod.GET)
-	public ResponseEntity<List<CidadeDTO>> findCidades(@PathVariable Integer estadoId) {
+	public ResponseEntity<List<CidadeDTO>> findCidades(@PathVariable UUID estadoId) {
 		List<Cidade> list = cidadeService.findByEstado(estadoId);
 		List<CidadeDTO> listDto = list.stream().map(obj -> new CidadeDTO(obj)).collect(Collectors.toList());  
 		return ResponseEntity.ok().body(listDto);

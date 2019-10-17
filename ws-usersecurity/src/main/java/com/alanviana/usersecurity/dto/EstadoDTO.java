@@ -1,13 +1,14 @@
 package com.alanviana.usersecurity.dto;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import com.alanviana.usersecurity.domain.Estado;
 
 public class EstadoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private Integer id;
+	private UUID id;
 	private String nome;
 	
 	public EstadoDTO() {
@@ -18,11 +19,11 @@ public class EstadoDTO implements Serializable {
 		nome = obj.getNome();
 	}
 	
-	public Integer getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 

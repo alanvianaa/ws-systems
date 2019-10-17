@@ -1,6 +1,7 @@
 package com.alanviana.usersecurity.dto;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -48,7 +49,7 @@ public class ClienteNewDTO implements Serializable {
 	
 	private String telefone3;
 
-	private Integer cidadeId;
+	private UUID cidadeId;
 	
 	public ClienteNewDTO() {
 	}
@@ -149,11 +150,11 @@ public class ClienteNewDTO implements Serializable {
 		this.telefone3 = telefone3;
 	}
 
-	public Integer getCidadeId() {
+	public UUID getCidadeId() {
 		return cidadeId;
 	}
 
-	public void setCidadeId(Integer cidadeId) {
+	public void setCidadeId(UUID cidadeId) {
 		this.cidadeId = cidadeId;
 	}
 	

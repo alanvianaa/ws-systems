@@ -1,13 +1,9 @@
 package com.alanviana.usersecurity.domain;
 
 import java.io.Serializable;
+import java.util.UUID;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,8 +12,8 @@ public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	@Column(name = "id", length = 16, unique = true, nullable = false)
+	private UUID id;
 	private String logradouro;
 	private String numero;
 	private String complemento;
@@ -36,10 +32,12 @@ public class Endereco implements Serializable {
 	public Endereco() {
 	}
 
-	public Endereco(Integer id, String logradouro, String numero, String complemento, String bairro, String cep,
+	public Endereco(UUID id, String logradouro, String numero, String complemento, String bairro, String cep,
 			Cliente cliente, Cidade cidade) {
 		super();
-		this.id = id;
+		if(id == null){
+			this.id = UUID.randomUUID();
+		}
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.complemento = complemento;
@@ -49,11 +47,11 @@ public class Endereco implements Serializable {
 		this.setCidade(cidade);
 	}
 
-	public Integer getId() {
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 
