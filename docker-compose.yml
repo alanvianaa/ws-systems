@@ -1,0 +1,9 @@
+version: '3'
+services:
+  usersecurity:
+    build:
+      context: ./ws-usersecurity
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
