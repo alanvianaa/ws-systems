@@ -3,21 +3,16 @@ package com.alanviana.usersecurity.services;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.alanviana.usersecurity.domain.Cidade;
 import com.alanviana.usersecurity.domain.Cliente;
 import com.alanviana.usersecurity.domain.Endereco;
-import com.alanviana.usersecurity.domain.Estado;
 import com.alanviana.usersecurity.domain.enums.Perfil;
 import com.alanviana.usersecurity.domain.enums.TipoCliente;
-import com.alanviana.usersecurity.repositories.CidadeRepository;
 import com.alanviana.usersecurity.repositories.ClienteRepository;
 import com.alanviana.usersecurity.repositories.EnderecoRepository;
-import com.alanviana.usersecurity.repositories.EstadoRepository;
 
 @Service
 public class DBService {
@@ -26,32 +21,12 @@ public class DBService {
 	private BCryptPasswordEncoder pe;
 
 	@Autowired
-	private EstadoRepository estadoRepository;
-	@Autowired
-	private CidadeRepository cidadeRepository;
-	@Autowired
 	private ClienteRepository clienteRepository;
 	@Autowired
 	private EnderecoRepository enderecoRepository;
 	
 	public void instantiateTestDatabase() throws ParseException {
 
-		Estado est1 = new Estado(null, "Minas Gerais");
-		estadoRepository.save(est1);
-		Estado est2 = new Estado(null, "São Paulo");
-		estadoRepository.save(est2);
-
-		Cidade c1 = new Cidade(null, "Uberlândia", est1);
-		cidadeRepository.save(c1);
-		Cidade c2 = new Cidade(null, "São Paulo", est2);
-		cidadeRepository.save(c2);
-		Cidade c3 = new Cidade(null, "Campinas", est2);
-		cidadeRepository.save(c3);
-		
-		est1.getCidades().addAll(Arrays.asList(c1));
-		est2.getCidades().addAll(Arrays.asList(c2, c3));
-
-		
 		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, pe.encode("123"));
 		
 		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
@@ -60,9 +35,9 @@ public class DBService {
 		cli2.getTelefones().addAll(Arrays.asList("93883321", "34252625"));
 		cli2.addPerfil(Perfil.ADMIN);
 		
-		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 303", "Jardim", "38220834", cli1, c1);
-		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cli1, c2);
-		Endereco e3 = new Endereco(null, "Avenida Floriano", "2106", null, "Centro", "281777012", cli2, c2);
+		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 303", "Jardim", "38220834", cli1, "Altamira", "PA");
+		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cli1, "Goiania", "GO");
+		Endereco e3 = new Endereco(null, "Avenida Floriano", "2106", null, "Centro", "281777012", cli2, "São Paulo","SP");
 		
 		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
 		cli2.getEnderecos().addAll(Arrays.asList(e3));

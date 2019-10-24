@@ -49,9 +49,23 @@ public class ClienteNewDTO implements Serializable {
 	
 	private String telefone3;
 
-	private UUID cidadeId;
+	private String cidade;
+
+	private String estado;
 	
 	public ClienteNewDTO() {
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public String getNome() {
@@ -150,12 +164,12 @@ public class ClienteNewDTO implements Serializable {
 		this.telefone3 = telefone3;
 	}
 
-	public UUID getCidadeId() {
-		return cidadeId;
+	public String getCidade() {
+		return cidade;
 	}
 
 	public void setCidadeId(UUID cidadeId) {
-		this.cidadeId = cidadeId;
+		this.cidade = cidade;
 	}
 	
 	public String getSenha() {

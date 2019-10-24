@@ -25,15 +25,17 @@ public class Endereco implements Serializable {
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
-	@ManyToOne
-	@JoinColumn(name="cidade_id")
-	private Cidade cidade;
+	@JoinColumn(name="cidade")
+	private String cidade;
+
+	@JoinColumn(name="estado")
+	private String estado;
 	
 	public Endereco() {
 	}
 
 	public Endereco(UUID id, String logradouro, String numero, String complemento, String bairro, String cep,
-			Cliente cliente, Cidade cidade) {
+			Cliente cliente, String cidade, String estado) {
 		super();
 		if(id == null){
 			this.id = UUID.randomUUID();
@@ -44,7 +46,8 @@ public class Endereco implements Serializable {
 		this.bairro = bairro;
 		this.cep = cep;
 		this.cliente = cliente;
-		this.setCidade(cidade);
+		this.cidade = cidade;
+		this.estado = estado;
 	}
 
 	public UUID getId() {
@@ -103,11 +106,11 @@ public class Endereco implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public Cidade getCidade() {
+	public String getCidade() {
 		return cidade;
 	}
 
-	public void setCidade(Cidade cidade) {
+	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
 
