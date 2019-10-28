@@ -4,13 +4,25 @@ import com.alanviana.model.enums.*;
 import com.alanviana.model.domain.Animal;
 import com.alanviana.model.domain.CronogramaDG;
 import com.alanviana.model.domain.Inseminacao;
+import com.alanviana.model.repositories.AnimalRepository;
+import com.alanviana.model.repositories.CronogramaDGRepository;
+import com.alanviana.model.repositories.InseminacaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 @Service
 public class DBService {
+
+    @Autowired
+    AnimalRepository animalRepository;
+    @Autowired
+    InseminacaoRepository inseminacaoRepository;
+    @Autowired
+    CronogramaDGRepository cronogramaDGRepository;
 
     public void initialize(){
         ArrayList<Animal> listaAnimais = new ArrayList<Animal>();
@@ -32,6 +44,9 @@ public class DBService {
 
         listaAnimais.add(animal1);
         listaAnimais.add(animal2);
+
+        animalRepository.saveAll(Arrays.asList(animal1, animal2));
+        inseminacaoRepository.save(inseminacao);
 
         animal1.addInseminacao(inseminacao);
         System.out.println("Vaca - Status: " + animal1.getStatusAnimal() + "\n" +
