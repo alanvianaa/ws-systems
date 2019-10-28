@@ -7,7 +7,7 @@ import com.alanviana.usersecurity.domain.Cliente;
 public interface EmailService {
 
 
-	void sendEmail(SimpleMailMessage msg);
-	
-	void sendNewPasswordEmail(Cliente cliente, String newPass);
+    void sendEmail(SimpleMailMessage msg);
+
+    void sendNewPasswordEmail(Cliente cliente, String newPass);
 }

@@ -13,18 +13,18 @@ import java.util.UUID;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
-	@Transactional(readOnly=true)
-	Cliente findByEmail(String email);
+    @Transactional(readOnly = true)
+    Cliente findByEmail(String email);
 
-	@Transactional(readOnly=true)
-	@Query("DELETE FROM Cliente cli WHERE cli.id = :id")
-	Cliente deleteById(@Param("id") UUID id);
+    @Transactional(readOnly = true)
+    @Query("DELETE FROM Cliente cli WHERE cli.id = :id")
+    Cliente deleteById(@Param("id") UUID id);
 
-	@Transactional(readOnly=true)
-	@Query("SELECT obj FROM Cliente obj WHERE obj.id = :id")
-	Cliente findById(@Param("id") UUID id);
+    @Transactional(readOnly = true)
+    @Query("SELECT obj FROM Cliente obj WHERE obj.id = :id")
+    Cliente findById(@Param("id") UUID id);
 
 
-	//public List<Cidade> findCidades(@Param("estadoId") Integer estado_id);
+    //public List<Cidade> findCidades(@Param("estadoId") Integer estado_id);
 
 }

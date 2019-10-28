@@ -14,17 +14,17 @@ import org.springframework.context.annotation.Profile;
 @Profile("test")
 public class TestConfig {
 
-	@Autowired
-	private DBService dbService;
-	
-	@Bean
-	public boolean instantiateDatabase() throws ParseException {
-		dbService.instantiateTestDatabase();
-		return true;
-	}
-	
-	@Bean
-	public EmailService emailService() {
-		return new MockEmailService();
-	}
+    @Autowired
+    private DBService dbService;
+
+    @Bean
+    public boolean instantiateDatabase() throws ParseException {
+        dbService.instantiateTestDatabase();
+        return true;
+    }
+
+    @Bean
+    public EmailService emailService() {
+        return new MockEmailService();
+    }
 }
