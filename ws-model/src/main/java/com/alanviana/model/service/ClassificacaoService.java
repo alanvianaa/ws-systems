@@ -1,7 +1,7 @@
 package com.alanviana.model.service;
 
 import com.alanviana.model.enums.Classificacao;
-import com.alanviana.model.model.Animal;
+import com.alanviana.model.domain.Animal;
 
 public class ClassificacaoService {
 

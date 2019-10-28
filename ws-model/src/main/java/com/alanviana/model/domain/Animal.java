@@ -1,16 +1,22 @@
-package com.alanviana.model.model;
+package com.alanviana.model.domain;
 
 import com.alanviana.model.enums.Categoria;
 import com.alanviana.model.enums.Sexo;
 import com.alanviana.model.enums.StatusAnimal;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Animal {
+@Entity
+public class Animal implements Serializable {
+    private static final long serialVersionUID = 1L;
 
+    @Id
+    @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     private Integer numero;
     private String nome;
@@ -18,7 +24,8 @@ public class Animal {
     private Sexo sexo;
     private Categoria categoria;
     private StatusAnimal statusAnimal;
-    private ArrayList<Inseminacao> list_inseminacoes = new ArrayList<Inseminacao>();
+    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
+    private List<Inseminacao> list_inseminacoes = new ArrayList<>();
 
     public Animal() {
     }

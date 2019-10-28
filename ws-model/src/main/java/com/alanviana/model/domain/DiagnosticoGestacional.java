@@ -1,11 +1,20 @@
-package com.alanviana.model.model;
+package com.alanviana.model.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class DiagnosticoGestacional {
+@Entity
+public class DiagnosticoGestacional implements Serializable {
+    private static final long serialVersionUID = 1L;
 
+    @Id
+    @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
+    @ManyToOne
+    @JoinColumn(name = "inseminacao_id")
+    private Inseminacao inseminacao;
     private LocalDate dt_Avaliacao;
     private Long anotacoes;
 

@@ -1,13 +1,15 @@
 package com.alanviana.model;
 
 import com.alanviana.model.enums.*;
-import com.alanviana.model.model.Animal;
-import com.alanviana.model.model.CronogramaDG;
-import com.alanviana.model.model.Inseminacao;
+import com.alanviana.model.domain.Animal;
+import com.alanviana.model.domain.CronogramaDG;
+import com.alanviana.model.domain.Inseminacao;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+@Service
 public class DBService {
 
     public void initialize(){

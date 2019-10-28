@@ -1,17 +1,27 @@
-package com.alanviana.model.model.posparto;
+package com.alanviana.model.domain.posparto;
 
+import com.alanviana.model.domain.Inseminacao;
 import com.alanviana.model.enums.StatusCronograma;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class CronogramaPosParto {
+@Entity
+public class CronogramaPosParto implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    UUID id;
-    LocalDate data;
-    Short dias;
-    String acao;
-    StatusCronograma statusCronograma;
+    @Id
+    @Column(name = "id", length = 16, unique = true, nullable = false)
+    private UUID id;
+    @ManyToOne
+    @JoinColumn(name = "inseminacao_id")
+    private Inseminacao inseminacao;
+    private LocalDate data;
+    private Short dias;
+    private String acao;
+    private StatusCronograma statusCronograma;
 
     public CronogramaPosParto(LocalDate data, Short dias, String acao, StatusCronograma statusCronograma) {
         this.data = data;
