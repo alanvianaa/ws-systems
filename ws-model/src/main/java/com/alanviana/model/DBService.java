@@ -33,19 +33,24 @@ public class DBService {
 
         Animal animal2 = new Animal(110, "Cornão", LocalDate.of(2010, 10, 25), Sexo.MACHO, Categoria.TOURO);
 
-        Inseminacao inseminacao = new Inseminacao(LocalDate.of(2019, 01, 01), animal2, Metodo.IA);
+        Inseminacao inseminacao = new Inseminacao(animal1, LocalDate.of(2019, 01, 01), animal2, Metodo.IA);
         Short dias = 30;
-        inseminacao.addCronogramaDG(new CronogramaDG(dias, "Fazer Primeira ultrasson", StatusCronograma.PENDENTE));
+        CronogramaDG cronogramaDG1 = new CronogramaDG(inseminacao ,dias, "Fazer Primeira ultrasson", StatusCronograma.PENDENTE);
+        inseminacao.addCronogramaDG(cronogramaDG1);
         dias = 90;
-        inseminacao.addCronogramaDG(new CronogramaDG(dias, "Fazer Segunda ultrasson", StatusCronograma.PENDENTE));
+        CronogramaDG cronogramaDG2 = new CronogramaDG(inseminacao ,dias, "Fazer Primeira ultrasson", StatusCronograma.PENDENTE);
+        inseminacao.addCronogramaDG(cronogramaDG2);
         dias = 220;
-        inseminacao.addCronogramaDG(new CronogramaDG(dias, "Fazer terceira ultrasson", StatusCronograma.PENDENTE));
+        CronogramaDG cronogramaDG3 = new CronogramaDG(inseminacao ,dias, "Fazer Primeira ultrasson", StatusCronograma.PENDENTE);
+        inseminacao.addCronogramaDG(cronogramaDG3);
 
 
         listaAnimais.add(animal1);
         listaAnimais.add(animal2);
 
-
+        animalRepository.saveAll(Arrays.asList(animal1, animal2));
+        inseminacaoRepository.saveAll(Arrays.asList(inseminacao));
+        cronogramaDGRepository.saveAll(Arrays.asList(cronogramaDG1,cronogramaDG2,cronogramaDG3));
 
         animal1.addInseminacao(inseminacao);
         System.out.println("Vaca - Status: " + animal1.getStatusAnimal() + "\n" +

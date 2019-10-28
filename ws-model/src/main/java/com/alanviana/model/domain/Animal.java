@@ -3,6 +3,7 @@ package com.alanviana.model.domain;
 import com.alanviana.model.enums.Categoria;
 import com.alanviana.model.enums.Sexo;
 import com.alanviana.model.enums.StatusAnimal;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,7 +25,8 @@ public class Animal implements Serializable {
     private Sexo sexo;
     private Categoria categoria;
     private StatusAnimal statusAnimal;
-    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "progenitora", cascade = CascadeType.ALL)
     private List<Inseminacao> list_inseminacoes = new ArrayList<>();
 
     public Animal() {

@@ -15,21 +15,26 @@ public class CronogramaDG implements Serializable {
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     @ManyToOne
-    @JoinColumn(name = "inseminacao_id")
     private Inseminacao inseminacao;
     private LocalDate data;
     private Short dias;
     private String acao;
     private StatusCronograma statusCronograma;
 
-    public CronogramaDG(LocalDate data, String acao, StatusCronograma statusCronograma) {
+    public CronogramaDG() {
+    }
+
+    public CronogramaDG(Inseminacao inseminacao, LocalDate data, String acao, StatusCronograma statusCronograma) {
+        this.inseminacao = inseminacao;
         this.data = data;
         this.acao = acao;
         this.statusCronograma = statusCronograma;
         this.id = UUID.randomUUID();
     }
 
-    public CronogramaDG(Short dias, String acao, StatusCronograma statusCronograma) {
+    public CronogramaDG(Inseminacao inseminacao, Short dias, String acao, StatusCronograma statusCronograma) {
+        this.inseminacao = inseminacao;
+        this.data = inseminacao.getData().plusDays(dias);
         this.dias = dias;
         this.acao = acao;
         this.statusCronograma = statusCronograma;

@@ -19,9 +19,9 @@ public class Inseminacao implements Serializable {
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     @ManyToOne
-    @JoinColumn(name = "animal_id")
-    private Animal animal;
+    private Animal progenitora;
     private LocalDate data;
+    @ManyToOne
     private Animal progenitor;
     private Metodo metodo;
     private StatusInseminacao statusInseminacao;
@@ -36,8 +36,11 @@ public class Inseminacao implements Serializable {
     @OneToMany(mappedBy = "inseminacao", cascade = CascadeType.ALL)
     private List<CronogramaPosParto> cpp = new ArrayList<>();
 
+    public Inseminacao() {
+    }
 
-    public Inseminacao(LocalDate data, Animal progenitor, Metodo metodo) {
+    public Inseminacao(Animal progenitora, LocalDate data, Animal progenitor, Metodo metodo) {
+        this.progenitora = progenitora;
         this.data = data;
         this.progenitor = progenitor;
         this.metodo = metodo;
