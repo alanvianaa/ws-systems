@@ -9,3 +9,7 @@ Entrar no diretorio do FileDocker, rodar o comando
 **Rodar o container**
 
 `sudo docker run -p 8080:8080 usersecurity`
+
+**Subir o docker-compose**
+
+`sudo docker-compose up`
