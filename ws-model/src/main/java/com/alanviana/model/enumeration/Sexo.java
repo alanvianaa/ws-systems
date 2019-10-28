@@ -1,4 +1,4 @@
-package com.alanviana.wsmodel.enumeration;
+package com.alanviana.model.enumeration;
 
 public enum Sexo {
     MACHO(1,"Inseminação Artificial"),

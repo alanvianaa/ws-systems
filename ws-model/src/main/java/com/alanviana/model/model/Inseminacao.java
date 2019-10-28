@@ -1,8 +1,8 @@
-package com.alanviana.wsmodel.model;
+package com.alanviana.model.model;
 
-import com.alanviana.wsmodel.enumeration.Metodo;
-import com.alanviana.wsmodel.enumeration.StatusInseminacao;
-import com.alanviana.wsmodel.model.posparto.CronogramaPosParto;
+import com.alanviana.model.enumeration.Metodo;
+import com.alanviana.model.enumeration.StatusInseminacao;
+import com.alanviana.model.model.posparto.CronogramaPosParto;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

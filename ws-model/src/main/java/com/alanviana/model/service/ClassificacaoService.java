@@ -1,4 +1,4 @@
-package com.alanviana.wsmodel.service;
+package com.alanviana.model.service;
 
 import enumeration.Classificacao;
 import model.Femea;

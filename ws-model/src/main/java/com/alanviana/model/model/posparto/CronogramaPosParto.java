@@ -1,4 +1,4 @@
-package com.alanviana.wsmodel.model.posparto;
+package com.alanviana.model.model.posparto;
 
 import enumeration.StatusCronograma;
 

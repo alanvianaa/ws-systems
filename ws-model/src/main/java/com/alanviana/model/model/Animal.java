@@ -1,8 +1,8 @@
-package com.alanviana.wsmodel.model;
+package com.alanviana.model.model;
 
-import com.alanviana.wsmodel.enumeration.Categoria;
-import com.alanviana.wsmodel.enumeration.Sexo;
-import com.alanviana.wsmodel.enumeration.StatusAnimal;
+import com.alanviana.model.enumeration.Categoria;
+import com.alanviana.model.enumeration.Sexo;
+import com.alanviana.model.enumeration.StatusAnimal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.alanviana.wsmodel.model;
+package com.alanviana.model.model;
 
 import java.time.LocalDate;
 import java.util.UUID;

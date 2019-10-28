@@ -1,6 +1,6 @@
-package com.alanviana.wsmodel.model;
+package com.alanviana.model.model;
 
-import com.alanviana.wsmodel.enumeration.StatusCronograma;
+import com.alanviana.model.enumeration.StatusCronograma;
 
 import java.time.LocalDate;
 import java.util.UUID;

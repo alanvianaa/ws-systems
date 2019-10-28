@@ -1,4 +1,4 @@
-package com.alanviana.wsmodel.enumeration;
+package com.alanviana.model.enumeration;
 
 public enum StatusCronograma {
 
