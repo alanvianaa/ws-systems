@@ -1,6 +1,6 @@
 package com.alanviana.model.model.posparto;
 
-import enumeration.StatusCronograma;
+import com.alanviana.model.enumeration.StatusCronograma;
 
 import java.time.LocalDate;
 import java.util.UUID;
