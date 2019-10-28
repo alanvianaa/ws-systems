@@ -1,8 +1,8 @@
 package com.alanviana.model.model;
 
-import com.alanviana.model.enumeration.Categoria;
-import com.alanviana.model.enumeration.Sexo;
-import com.alanviana.model.enumeration.StatusAnimal;
+import com.alanviana.model.enums.Categoria;
+import com.alanviana.model.enums.Sexo;
+import com.alanviana.model.enums.StatusAnimal;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

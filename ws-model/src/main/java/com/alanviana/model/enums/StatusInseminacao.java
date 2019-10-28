@@ -1,4 +1,4 @@
-package com.alanviana.model.enumeration;
+package com.alanviana.model.enums;
 
 public enum StatusInseminacao {
 

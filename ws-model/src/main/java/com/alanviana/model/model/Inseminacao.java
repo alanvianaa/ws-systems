@@ -1,7 +1,7 @@
 package com.alanviana.model.model;
 
-import com.alanviana.model.enumeration.Metodo;
-import com.alanviana.model.enumeration.StatusInseminacao;
+import com.alanviana.model.enums.Metodo;
+import com.alanviana.model.enums.StatusInseminacao;
 import com.alanviana.model.model.posparto.CronogramaPosParto;
 
 import java.time.LocalDate;
