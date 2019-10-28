@@ -37,7 +37,6 @@ public class Inseminacao implements Serializable {
     private List<CronogramaPosParto> cpp = new ArrayList<>();
 
 
-
     public Inseminacao(LocalDate data, Animal progenitor, Metodo metodo) {
         this.data = data;
         this.progenitor = progenitor;

@@ -45,8 +45,7 @@ public class DBService {
         listaAnimais.add(animal1);
         listaAnimais.add(animal2);
 
-        animalRepository.saveAll(Arrays.asList(animal1, animal2));
-        inseminacaoRepository.save(inseminacao);
+
 
         animal1.addInseminacao(inseminacao);
         System.out.println("Vaca - Status: " + animal1.getStatusAnimal() + "\n" +
