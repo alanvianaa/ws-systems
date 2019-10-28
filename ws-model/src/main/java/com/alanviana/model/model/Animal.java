@@ -43,6 +43,22 @@ public class Animal {
         this.list_inseminacoes.add(inseminacao);
     }
 
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     public StatusAnimal getStatusAnimal() {
         return statusAnimal;
     }

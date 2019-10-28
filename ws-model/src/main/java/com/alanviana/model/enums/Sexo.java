@@ -1,8 +1,8 @@
 package com.alanviana.model.enums;
 
 public enum Sexo {
-    MACHO(1,"Inseminação Artificial"),
-    FEMEA(2, "Inseminação Artificial em Tempo Fixo");
+    FEMEA(1, "Femea"),
+    MACHO(2,"Macho");
 
     public final static Sexo [] listagem = {MACHO, FEMEA};
 

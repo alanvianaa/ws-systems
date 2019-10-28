@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WsModelApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(WsModelApplication.class, args);
     }
 
