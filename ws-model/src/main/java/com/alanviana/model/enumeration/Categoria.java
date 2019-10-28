@@ -12,7 +12,7 @@ public enum Categoria {
     private final Integer id;
     private final String descricao;
 
-    private Categoria(Integer id, String descricao){
+    Categoria(Integer id, String descricao){
         this.id = id;
         this.descricao = descricao;
     }

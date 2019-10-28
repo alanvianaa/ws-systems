@@ -13,7 +13,7 @@ public enum StatusCronograma {
     private final Integer id;
     private final String descricao;
 
-    private StatusCronograma(Integer id, String descricao){
+    StatusCronograma(Integer id, String descricao){
         this.id = id;
         this.descricao = descricao;
     }

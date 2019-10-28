@@ -15,7 +15,7 @@ public enum StatusInseminacao {
     private final Integer id;
     private final String descricao;
 
-    private StatusInseminacao(Integer id, String descricao){
+    StatusInseminacao(Integer id, String descricao){
         this.id = id;
         this.descricao = descricao;
     }

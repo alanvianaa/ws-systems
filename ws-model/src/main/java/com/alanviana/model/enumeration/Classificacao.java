@@ -12,7 +12,7 @@ public enum Classificacao{
     private final Integer id;
     private final String descricao;
 
-    private Classificacao(Integer id, String descricao){
+    Classificacao(Integer id, String descricao){
         this.id = id;
         this.descricao = descricao;
     }

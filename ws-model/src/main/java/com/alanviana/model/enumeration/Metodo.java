@@ -11,7 +11,7 @@ public enum Metodo {
     private final Integer id;
     private final String descricao;
 
-    private Metodo(Integer id, String descricao){
+    Metodo(Integer id, String descricao){
         this.id = id;
         this.descricao = descricao;
     }
