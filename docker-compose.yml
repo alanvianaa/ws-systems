@@ -1,5 +1,18 @@
 version: '3'
 services:
+  #CONTAINER DO BANCO DE DADOS
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: admin
+    volumes:
+      - microservices:/var/lib/mysql
+
+  #CONTAINER DO SERVIÇO DE SEGURANCA DE USUARIO
   usersecurity:
     build:
       context: ./ws-usersecurity
@@ -7,3 +20,5 @@ services:
     ports:
       - "8080:8080"
 
+volumes:
+  microservices:
