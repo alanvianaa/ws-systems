@@ -23,6 +23,7 @@
 
     <modules>
         <module>ws-usersecurity</module>
+        <module>ws-model</module>
     </modules>
 
     <dependencies>
