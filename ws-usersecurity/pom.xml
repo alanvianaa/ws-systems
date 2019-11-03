@@ -24,6 +24,10 @@
     </properties>-->
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 <!--    Não será mais utilizados essas dependencias pq eles vão herdar do pom principal
 
         <dependency>
