@@ -7,12 +7,9 @@ import reactor.core.publisher.Mono;
 @RestController
 public class GatewayController {
 
-    @RequestMapping("/countriesfallback")
+    @RequestMapping("/fallback")
     public Mono<String> countries() {
-        return Mono.just("Countries API is taking too long to respond or is down. Please try again later");
+        return Mono.just("Parece que esse microcervice está desligado. Tente novamente mais tarde. Bla bla bla");
     }
-    @RequestMapping("/jokefallback")
-    public Mono<String> joke() {
-        return Mono.just("Joke API is taking too long to respond or is down. Please try again later");
-    }
+
 }
