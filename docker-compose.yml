@@ -18,7 +18,15 @@ services:
       context: ./ws-usersecurity
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8082:8082"
+  
+  #CONTAINER DO SERVIÇO MODEL 
+  model:
+    build:
+      context: ./ws-model
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
 
 volumes:
   microservices:

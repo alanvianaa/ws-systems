@@ -1,8 +1,6 @@
 package com.alanviana.model.domain.posparto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -12,6 +10,7 @@ public class Citologia implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     UUID id;
     LocalDate tdColeta;
@@ -22,7 +21,6 @@ public class Citologia implements Serializable {
         this.tdColeta = td_coleta;
         this.qtdColeta = qtd_coleta;
         this.qtdAmostra = qtd_amostra;
-        this.id = UUID.randomUUID();
     }
 
     public UUID getId() {

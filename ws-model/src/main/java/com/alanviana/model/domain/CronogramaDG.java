@@ -12,6 +12,7 @@ public class CronogramaDG implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     @ManyToOne
@@ -29,7 +30,6 @@ public class CronogramaDG implements Serializable {
         this.data = data;
         this.acao = acao;
         this.statusCronograma = statusCronograma;
-        this.id = UUID.randomUUID();
     }
 
     public CronogramaDG(Inseminacao inseminacao, Short dias, String acao, StatusCronograma statusCronograma) {
@@ -38,7 +38,6 @@ public class CronogramaDG implements Serializable {
         this.dias = dias;
         this.acao = acao;
         this.statusCronograma = statusCronograma;
-        this.id = UUID.randomUUID();
     }
 
 

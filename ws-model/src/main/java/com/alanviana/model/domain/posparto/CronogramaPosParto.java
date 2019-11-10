@@ -13,6 +13,7 @@ public class CronogramaPosParto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     @ManyToOne
@@ -28,7 +29,6 @@ public class CronogramaPosParto implements Serializable {
         this.dias = dias;
         this.acao = acao;
         this.statusCronograma = statusCronograma;
-        this.id = UUID.randomUUID();
     }
 
     public UUID getId() {

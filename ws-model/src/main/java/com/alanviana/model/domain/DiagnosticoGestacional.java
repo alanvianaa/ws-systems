@@ -10,6 +10,7 @@ public class DiagnosticoGestacional implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     @ManyToOne
@@ -22,7 +23,6 @@ public class DiagnosticoGestacional implements Serializable {
     public DiagnosticoGestacional(LocalDate dt_Avaliacao, Long anotacoes) {
         this.dt_Avaliacao = dt_Avaliacao;
         this.anotacoes = anotacoes;
-        this.id = UUID.randomUUID();
     }
 
     public UUID getId() {

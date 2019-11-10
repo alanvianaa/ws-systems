@@ -16,7 +16,9 @@ import java.util.UUID;
 public class Animal implements Serializable {
     private static final long serialVersionUID = 1L;
 
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     private Integer numero;
@@ -32,8 +34,7 @@ public class Animal implements Serializable {
     public Animal() {
     }
 
-    public Animal(Integer numero, String nome, LocalDate dtNascimento, Sexo sexo, Categoria categoria) {
-        this.id = UUID.randomUUID();
+    public Animal(int numero, String nome, LocalDate dtNascimento, Sexo sexo, Categoria categoria) {
         this.numero = numero;
         this.nome = nome;
         this.dtNascimento = dtNascimento;

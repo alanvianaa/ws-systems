@@ -16,6 +16,7 @@ public class Inseminacao implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     @ManyToOne
@@ -44,7 +45,6 @@ public class Inseminacao implements Serializable {
         this.data = data;
         this.progenitor = progenitor;
         this.metodo = metodo;
-        this.id = UUID.randomUUID();
     }
 
     public void addCronogramaDG(CronogramaDG cronogramaDG){
