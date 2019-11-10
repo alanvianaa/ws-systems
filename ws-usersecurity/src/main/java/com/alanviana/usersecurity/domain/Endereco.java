@@ -12,6 +12,7 @@ public class Endereco implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     private String logradouro;
@@ -37,9 +38,7 @@ public class Endereco implements Serializable {
     public Endereco(UUID id, String logradouro, String numero, String complemento, String bairro, String cep,
                     Cliente cliente, String cidade, String estado) {
         super();
-        if (id == null) {
-            this.id = UUID.randomUUID();
-        }
+        this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;

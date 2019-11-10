@@ -15,6 +15,7 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 16, unique = true, nullable = false)
     private UUID id;
     private String nome;
@@ -44,9 +45,7 @@ public class Cliente implements Serializable {
 
     public Cliente(UUID id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
         super();
-        if (id == null) {
-            this.id = UUID.randomUUID();
-        }
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfOuCnpj = cpfOuCnpj;
