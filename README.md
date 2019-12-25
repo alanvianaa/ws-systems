@@ -13,3 +13,8 @@ Entrar no diretorio do FileDocker, rodar o comando
 **Subir o docker-compose**
 
 `sudo docker-compose up`
+
+**Instalar o Heroku para deploy**
+
+`sudo snap install --classic heroku`
+
