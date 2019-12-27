@@ -1,4 +1,4 @@
-FROM openjdk:8
-ADD target/usersecurity-0.0.1-SNAPSHOT.jar usersecurity-0.0.1-SNAPSHOT.jar
+FROM adoptopenjdk/openjdk11:latest
+ADD target/usersecurity.jar usersecurity.jar
 EXPOSE 8082
-ENTRYPOINT ["java", "-jar", "usersecurity-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "usersecurity.jar"]

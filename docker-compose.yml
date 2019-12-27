@@ -3,14 +3,17 @@ services:
   #CONTAINER DO BANCO DE DADOS
   db:
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+#command: --default-authentication-plugin=mysql_native_password
     ports:
       - 3306:3306
     environment:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: "usersecurity"
     volumes:
       - microservices:/var/lib/mysql
+    networks:
+      - mysql-compose-network
 
   #CONTAINER DO SERVIÇO DE SEGURANCA DE USUARIO
   usersecurity:
@@ -19,6 +22,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8082:8082"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=test"  
+    networks:
+      - mysql-compose-network
   
   #CONTAINER DO SERVIÇO MODEL 
   model:
@@ -27,6 +34,14 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8083:8083"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    networks:
+      - mysql-compose-network
+
+networks: 
+  mysql-compose-network:
+    driver: bridge
 
 volumes:
   microservices:
